@@ -57,8 +57,8 @@ Before you begin, ensure you have met the following requirements:
 
 4. Navigate to the project backend directory:
 
-    ```bash
-   cd jobs-portal
+   ```bash
+   cd backend
    ```
 5. Now start the backend server
 
@@ -70,4 +70,6 @@ Before you begin, ensure you have met the following requirements:
 ## API Endpoints
 
 - **POST /api/job/postJob**: Endpoint to post a new job listing.
+- **POST /api/auth/registerUserDetails**: Endpoint to register company.
+- **POST /api/auth/verifyOtp**: Endpoint to verify the OTP send on mail.
 
