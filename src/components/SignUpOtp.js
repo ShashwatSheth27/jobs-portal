@@ -14,7 +14,7 @@ export default function SignUpOtp({ verificationId }) {
         try {
             data.verificationId = verificationId;
             const res = await axios.post('http://localhost:5000/api/auth/verifyOtp', data);
-            if (res && res.data.success == 1) {
+            if (res && res.data.success === 1) {
                 const token = res.data.token;
                 const user = res.data.user;
                 localStorage.setItem('authToken', token);
@@ -24,7 +24,7 @@ export default function SignUpOtp({ verificationId }) {
                     navigate('/dashboard/jobpost');
                 }, 2000);
             }
-            else if (res.data.success == 0) {
+            else if (res.data.success === 0) {
                 setError('emailOtp', { type: 'manual', message: res.data.message });
             }
         } catch (error) {

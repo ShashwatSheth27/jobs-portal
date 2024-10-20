@@ -66,6 +66,9 @@ Make sure to create a `.env` file in the `backend` directory with the SMTP envir
 
 SMTP_USER_EMAIL=YOUR_EMAIL@gmail.com
 SMTP_USER_PASS=YOUR_PASSWORD
+MONGODB_URI=YOUR_DB_CONNECTION_STRING
+
+For mongodb connection string you can use - 'mongodb+srv://shethshashwat26:u9fO3m6Ua1IoFqrm@jobboard.fbtk7.mongodb.net/?retryWrites=true&w=majority&appName=jobBoard'
 
 6. Run the following command to install the backend dependencies:
    ```bash

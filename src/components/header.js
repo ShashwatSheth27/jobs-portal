@@ -12,7 +12,7 @@ function Header({ username, onLogout }) {
         <header className="bg-white">
             <nav aria-label="Global" className="flex items-center justify-between mt-12 ml-14 mr-24">
                 <div className="flex lg:flex-1">
-                    <a href="#" className="-m-1.5 p-1.5">
+                    <a href="/" className="-m-1.5 p-1.5">
                         <img alt="Company Icon" src="/company-icon.png" className="h-11 w-40" />
                     </a>
                 </div>

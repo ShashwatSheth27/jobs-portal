@@ -1,3 +1,6 @@
+require('dotenv').config();
+const MONGODB_URI = process.env.MONGODB_URI;
+
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
@@ -6,7 +9,10 @@ const cors = require('cors');
 
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));
 
-mongoose.connect('mongodb://localhost:27017/jobBoard');
+mongoose.connect(MONGODB_URI)
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error('MongoDB connection error:', err));
+
 const authRoutes = require('./routes/auth');
 const jobRoutes = require('./routes/job');
 app.use(express.json());
