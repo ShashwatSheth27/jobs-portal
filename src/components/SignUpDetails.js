@@ -4,11 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faPhone, faEnvelope, faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
 
 export default function SignUpDetails({ callback }) {
+    console.log('feb testing', process.env.REACT_APP_API_BASE_URL);
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async (formData) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/registerUserDetails', formData);
+            const res = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/auth/registerUserDetails`, formData);
             if(res && res.data && res.data.success){
                 callback(res.data.data.userId);
             }

@@ -7,7 +7,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/auth/login', formData);
+      const res = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/auth/login`, formData);
       console.log('Login successful:', res.data);
       // Handle JWT token or session storage
     } catch (error) {

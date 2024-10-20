@@ -13,7 +13,7 @@ export default function SignUpOtp({ verificationId }) {
     const onSubmit = async (data) => {
         try {
             data.verificationId = verificationId;
-            const res = await axios.post('http://localhost:5000/api/auth/verifyOtp', data);
+            const res = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/auth/verifyOtp`, data);
             if (res && res.data.success === 1) {
                 const token = res.data.token;
                 const user = res.data.user;

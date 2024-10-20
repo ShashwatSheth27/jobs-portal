@@ -42,6 +42,9 @@ Before you begin, ensure you have met the following requirements:
    ```bash
    npm install jwt-decode
    ```
+5. Make sure to create a `.env` file in the root `jobs-portal` directory with the environment variables.
+
+REACT_APP_API_BASE_URL=http://localhost:5000
 
 ## Running the Project
 
@@ -62,8 +65,10 @@ Before you begin, ensure you have met the following requirements:
    ```
 5. Environment Variables
 
-Make sure to create a `.env` file in the `backend` directory with the SMTP environment variables.
+Make sure to create a `.env` file in the `backend` directory with the environment variables.
 
+REACT_APP_BASE_URL='http://localhost:3000'
+PORT='5000'
 SMTP_USER_EMAIL=YOUR_EMAIL@gmail.com
 SMTP_USER_PASS=YOUR_PASSWORD
 MONGODB_URI=YOUR_DB_CONNECTION_STRING

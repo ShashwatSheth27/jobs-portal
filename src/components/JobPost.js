@@ -17,7 +17,7 @@ function JobPost() {
         const decodedToken = jwtDecode(authToken);
         data.userId = decodedToken.userId;
       }
-      const res = await axios.post('http://localhost:5000/api/job/postJob', data);
+      const res = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/job/postJob`, data);
       if (res.data.success) {
         alert('Job posted successfully');
       }
