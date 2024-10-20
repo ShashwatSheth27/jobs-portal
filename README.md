@@ -60,7 +60,19 @@ Before you begin, ensure you have met the following requirements:
    ```bash
    cd backend
    ```
-5. Now start the backend server
+5. Environment Variables
+
+Make sure to create a `.env` file in the `backend` directory with the SMTP environment variables.
+
+SMTP_USER_EMAIL=YOUR_EMAIL@gmail.com
+SMTP_USER_PASS=YOUR_PASSWORD
+
+6. Run the following command to install the backend dependencies:
+   ```bash
+   npm install
+   ```
+
+7. Now start the backend server
 
    ```bash
    npm start

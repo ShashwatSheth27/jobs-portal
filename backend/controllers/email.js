@@ -1,3 +1,4 @@
+require('dotenv').config();
 const nodemailer = require('nodemailer');
 const emailTemplate = require('../assets/mail-template');
 
@@ -7,8 +8,8 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: 'shethshashwat26@gmail.com',
-    pass: "ydge vnnb ctse rtfd",
+    user: process.env.SMTP_USER_EMAIL,
+    pass: process.env.SMTP_USER_PASS,
   },
 });
 
