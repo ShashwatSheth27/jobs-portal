@@ -581,11 +581,6 @@ video {
   margin: 0.75rem;
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .ml-14 {
   margin-left: 3.5rem;
 }
@@ -650,10 +645,6 @@ video {
   width: 100%;
 }
 
-.max-w-md {
-  max-width: 28rem;
-}
-
 .flex-grow {
   flex-grow: 1;
 }
@@ -710,14 +701,14 @@ video {
   gap: 1.75rem;
 }
 
-.gap-8 {
-  gap: 2rem;
-}
-
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 
 .rounded-2xl {
@@ -747,6 +738,11 @@ video {
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.border-slate-gray {
+  --tw-border-opacity: 1;
+  border-color: rgb(168 168 168 / var(--tw-border-opacity));
 }
 
 .border-t-gray-300 {
@@ -815,6 +811,11 @@ video {
   padding: 1px;
 }
 
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -840,6 +841,11 @@ video {
 
 .font-sans {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-3xl {
@@ -888,7 +894,7 @@ video {
   color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
-.text-custom-gray {
+.text-charcoal {
   --tw-text-opacity: 1;
   color: rgb(41 41 41 / var(--tw-text-opacity));
 }
@@ -923,6 +929,11 @@ video {
   color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
+.text-silver-gray {
+  --tw-text-opacity: 1;
+  color: rgb(131 144 159 / var(--tw-text-opacity));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -936,12 +947,6 @@ video {
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-md {
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 

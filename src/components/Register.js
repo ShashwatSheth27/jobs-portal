@@ -23,7 +23,7 @@ function Register() {
           <div className="bg-white p-10 rounded-2xl flex flex-col items-center gap-10">
             <div className='flex flex-col items-center justify-center'>
               <span className='font-sans text-3xl font-semibold'>Sign Up</span>
-              <span className='font-medium text-center text-custom-gray'>Lorem Ipsum is simply dummy text</span>
+              <span className='font-medium text-center text-charcoal'>Lorem Ipsum is simply dummy text</span>
             </div>
             {step === 1 ? ( <SignUpDetails callback={handleDetailsSubmit} />
             ) : ( <SignUpOtp verificationId={userId} /> )}

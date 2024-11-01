@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faPhone, faEnvelope, faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
 
 export default function SignUpDetails({ callback }) {
-    console.log('feb testing', process.env.REACT_APP_API_BASE_URL);
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async (formData) => {
@@ -96,7 +95,7 @@ export default function SignUpDetails({ callback }) {
                     {errors.employeeSize && <p className="text-red-500">{errors.employeeSize.message}</p>}
                 </div>
 
-                <div className="terms text-center text-base font-bold text-custom-gray">
+                <div className="terms text-center text-base font-bold text-charcoal">
                     <p>
                         By clicking on proceed you will accept our <br />
                         <a href="/"><span className='text-blue-500'>Terms</span> & <span className='text-blue-500'>Conditions</span></a>

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 function Header({ username, onLogout }) {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -22,11 +24,10 @@ function Header({ username, onLogout }) {
                     </div>
                     {userAuthenticated && (
                         <div className="relative inline-block text-left">
-                            <button
-                                className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 gap-3"
-                                onClick={toggleDropdown}
-                            >
-                                <span>{username}</span> <span>▼</span>
+                            <button className="inline-flex justify-center items-center w-full rounded-md border border-slate-gray shadow-sm px-2 py-1 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 gap-3" onClick={toggleDropdown}>
+                                <span className="text-silver-gray text-2xl"><FontAwesomeIcon icon={faCircle} /></span> 
+                                <span className="text-silver-gray font-normal">{username}</span> 
+                                <span className="text-silver-gray text-lg"><FontAwesomeIcon icon={faCaretDown} /></span>
                             </button>
                             {isDropdownOpen && (
                                 <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5" onMouseLeave={() => setIsDropdownOpen(false)}>

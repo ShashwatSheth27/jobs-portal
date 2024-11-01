@@ -27,9 +27,9 @@ function JobPost() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto p-4 space-y-4 bg-white shadow-md rounded-md">
+    <form onSubmit={handleSubmit(onSubmit)} className="p-4 space-y-4 bg-white">
       <div className="flex items-center">
-        <label htmlFor="title" className="w-40 font-bold text-gray-800">Job Title</label>
+        <label htmlFor="title" className="whitespace-nowrap font-bold text-gray-800">Job Title</label>
         <input
           type="text"
           id="title"
@@ -40,7 +40,7 @@ function JobPost() {
         {errors.title && <p className="text-red-500 text-sm">{errors.title.message}</p>}
       </div>
       <div className="flex items-center">
-        <label htmlFor="description" className="w-40 font-bold text-gray-800">Job Description</label>
+        <label htmlFor="description" className="whitespace-nowrap font-bold text-gray-800">Job Description</label>
         <textarea
           id="description"
           placeholder="Enter Job Description"
@@ -51,7 +51,7 @@ function JobPost() {
         {errors.description && <p className="text-red-500 text-sm">{errors.description.message}</p>}
       </div>
       <div className="flex items-center">
-        <label htmlFor="experienceLevel" className="w-40 font-bold text-gray-800">Experience Level</label>
+        <label htmlFor="experienceLevel" className="whitespace-nowrap font-bold text-gray-800">Experience Level</label>
         <select
           id="experienceLevel"
           className="border border-gray-300 rounded-md w-full p-2"
@@ -65,7 +65,7 @@ function JobPost() {
         {errors.experienceLevel && <p className="text-red-500 text-sm">{errors.experienceLevel.message}</p>}
       </div>
       <div className="flex items-center">
-        <label htmlFor="candidateEmail" className="w-40 font-bold text-gray-800">Add Candidate</label>
+        <label htmlFor="candidateEmail" className="whitespace-nowrap font-bold text-gray-800">Add Candidate</label>
         <input
           type="email"
           id="candidateEmail"
@@ -78,7 +78,7 @@ function JobPost() {
         {errors.candidateEmail && <p className="text-red-500 text-sm">{errors.candidateEmail.message}</p>}
       </div>
       <div className="flex items-center">
-        <label htmlFor="endDate" className="w-40 font-bold text-gray-800">End Date</label>
+        <label htmlFor="endDate" className="whitespace-nowrap font-bold text-gray-800">End Date</label>
         <input
           type="date"
           id="endDate"
