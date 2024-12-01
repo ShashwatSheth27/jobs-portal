@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 const CandidateSchema = new mongoose.Schema({
   email: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
   job: {
     type: mongoose.Schema.Types.ObjectId,

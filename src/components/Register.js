@@ -2,10 +2,16 @@ import React, { useState } from 'react';
 import Header from './header';
 import SignUpDetails from './SignUpDetails';
 import SignUpOtp from './SignUpOtp';
+import { useLocation } from 'react-router-dom';
 
 function Register() {
-  const [step, setStep] = useState(1);
-  const [userId, setUserId] = useState(null);
+  const location = useLocation();
+  let defaultStep = 1;
+  let user_id = null;
+  if(location.state && location.state.step) defaultStep = location.state.step;
+  if(location.state && location.state.userId) user_id = location.state.userId;
+  const [step, setStep] = useState(defaultStep);
+  const [userId, setUserId] = useState(user_id);
 
   const handleDetailsSubmit = (registeredUserId) => {
     setUserId(registeredUserId);

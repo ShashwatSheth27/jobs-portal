@@ -32,15 +32,26 @@ const sendVerificationEmail = (user, otp) => {
   }
 };
 
-const sendJobAlert = (job, candidateEmail) => {
-    const mailOptions = {
-      from: 'shethshashwat26@gmail.com',
-      to: candidateEmail,
-      subject: 'New Job Posting: ' + job.title,
-      text: `Details: ${job.description}`
-    };
+const sendJobAlert = (job, candidateEmails) => {
+  if (!Array.isArray(candidateEmails) || candidateEmails.length === 0) return false;
+  let jobEmailContent = `Details: ${job.description} <br>`;
+  let jobExperience = ['Junior','Mid','Senior'];
+  if (job.experienceLevel) jobEmailContent += 'Experience Required : ' + jobExperience[parseInt(job.experienceLevel) - 1] + ' level <br>';
+  if (job.endDate) {
+    const formattedEndDate = new Date(job.endDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+    jobEmailContent += 'Last Date to apply: ' + formattedEndDate + '<br>';
+  }
+  const mailOptions = {
+    from: 'shethshashwat26@gmail.com',
+    subject: 'New Job Posting: ' + job.title,
+    text: jobEmailContent,
+    html: emailTemplate(jobEmailContent)
+  };
+  candidateEmails.forEach((email) => {
+    mailOptions.to = email;
     transporter.sendMail(mailOptions);
+  });
 };
   
 
-module.exports = { sendVerificationEmail };
+module.exports = { sendVerificationEmail, sendJobAlert };

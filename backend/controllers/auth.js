@@ -1,3 +1,4 @@
+require('dotenv').config();
 const emailController = require('./email');
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
@@ -32,8 +33,31 @@ const verifyOtp = async (req, res) => {
     user.otp = undefined;
     user.otpExpires = undefined;
     await user.save();
-    const token = jwt.sign({ userId: user._id }, 'jwtSecret', { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
     res.json({ success: 1, message: 'Email verified successfully', 'token':token, 'user':user.name });
 }
 
-module.exports = { registerUserDetails, verifyOtp };
+const login  = async (req, res) => {
+    const { email, password } = req.body;
+    const user = await User.findOne({ companyEmail: email });
+    if (!user) {
+        return res.json({ success: 0, message: 'User not found' });
+    }
+    if (!user.email_verified) {
+        const otp = crypto.randomInt(100000, 999999).toString();
+        const otpExpires = Math.floor(new Date(Date.now() + 10 * 60 * 1000).getTime() / 1000); // OTP expires in 10 minutes
+        user.otp = otp;
+        user.otpExpires = otpExpires;
+        await user.save();
+        emailController.sendVerificationEmail(user, otp);
+        return res.json({ success: -2, message: 'Email is not verified, OTP sent to your email', data : { userId : user._id }} );
+    }
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+        return res.json({ success: -1, message: 'Invalid password' });
+    }
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    res.json({ success: 1, message: 'User authenticated', 'token':token, 'user':user.name });
+}
+
+module.exports = { registerUserDetails, verifyOtp, login };

@@ -6,8 +6,8 @@ function AuthMiddleware({ children }) {
     const location = useLocation();
     const authToken = localStorage.getItem('authToken');
     useEffect(() => {
-        if(!authToken && location.pathname.startsWith('/dashboard')) navigate('/register');
-        else if(authToken && (location.pathname.startsWith('/register'))) navigate('/dashboard/jobPost');
+        if(!authToken && location.pathname.startsWith('/dashboard')) navigate('/login');
+        else if(authToken && (location.pathname.startsWith('/register') || location.pathname.startsWith('/Login'))) navigate('/dashboard/jobPost');
     }, [authToken, location, navigate]);
 
     return children;

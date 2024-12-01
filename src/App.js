@@ -8,8 +8,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="" element={<Navigate to="/register" replace />} />
-        <Route path="/login" element={<Navigate to="/register" replace />} />
+        <Route path="*" element={<AuthMiddleware><Navigate to="/Login" replace /></AuthMiddleware>} />
+        <Route path="/login" element={<AuthMiddleware><Login /></AuthMiddleware>} />
         <Route path="/register" element={<AuthMiddleware><Register /></AuthMiddleware>} />
         <Route path="/dashboard/*" element={<AuthMiddleware><Dashboard /></AuthMiddleware>} />
       </Routes>
